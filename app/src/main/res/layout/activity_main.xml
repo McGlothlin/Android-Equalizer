@@ -13,7 +13,7 @@
         android:layout_marginEnd="280dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="Reset"
+        android:text="@string/reset"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,8 +25,47 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="8dp"
-        android:text="Enabled"
+        android:text="@string/enabled"
         app:layout_constraintBottom_toBottomOf="@+id/resetButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/resetButton" />
+
+    <SeekBar
+        android:id="@+id/bassBoostSeekBar"
+        style="@android:style/Widget.DeviceDefault.SeekBar"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="32dp"
+        android:max="100"
+        android:progress="0"
+        app:layout_constraintEnd_toEndOf="@+id/enabledSwitch"
+        app:layout_constraintStart_toStartOf="@+id/resetButton"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar5" />
+
+    <TextView
+        android:id="@+id/bassBoostLabel"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/bass_boost_label"
+        app:layout_constraintEnd_toEndOf="@+id/bassBoostSeekBar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/bassBoostSeekBar"
+        app:layout_constraintTop_toBottomOf="@+id/bassBoostSeekBar" />
+
+    <SeekBar
+        android:id="@+id/seekBar5"
+        style="@android:style/Widget.DeviceDefault.SeekBar"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:max="100"
+        android:progress="50"
+        android:rotation="90"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
