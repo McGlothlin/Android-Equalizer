@@ -35,37 +35,103 @@
         style="@android:style/Widget.DeviceDefault.SeekBar"
         android:layout_width="0dp"
         android:layout_height="30dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:max="100"
         android:progress="0"
+        app:layout_constraintBottom_toTopOf="@+id/bassBoostLabel"
         app:layout_constraintEnd_toEndOf="@+id/enabledSwitch"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/resetButton"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar5" />
+        app:layout_constraintTop_toBottomOf="@+id/verticalSeekBar1" />
 
     <TextView
         android:id="@+id/bassBoostLabel"
         android:layout_width="0dp"
         android:layout_height="20dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/bass_boost_label"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/bassBoostSeekBar"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/bassBoostSeekBar"
         app:layout_constraintTop_toBottomOf="@+id/bassBoostSeekBar" />
 
-    <SeekBar
-        android:id="@+id/seekBar5"
+    <android.widget.VerticalSeekBar
+        android:id="@+id/verticalSeekBar1"
         style="@android:style/Widget.DeviceDefault.SeekBar"
-        android:layout_width="wrap_content"
+        android:layout_width="20dp"
         android:layout_height="300dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:max="100"
         android:progress="50"
-        android:rotation="90"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/verticalSeekBar2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.393" />
+
+    <android.widget.VerticalSeekBar
+        android:id="@+id/verticalSeekBar2"
+        style="@android:style/Widget.DeviceDefault.SeekBar"
+        android:layout_width="20dp"
+        android:layout_height="300dp"
+        android:max="100"
+        android:progress="50"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/verticalSeekBar3"
+        app:layout_constraintStart_toEndOf="@+id/verticalSeekBar1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.393" />
+
+    <android.widget.VerticalSeekBar
+        android:id="@+id/verticalSeekBar3"
+        style="@android:style/Widget.DeviceDefault.SeekBar"
+        android:layout_width="20dp"
+        android:layout_height="300dp"
+        android:max="100"
+        android:progress="50"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/verticalSeekBar4"
+        app:layout_constraintStart_toEndOf="@+id/verticalSeekBar2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.393" />
+
+    <android.widget.VerticalSeekBar
+        android:id="@+id/verticalSeekBar4"
+        style="@android:style/Widget.DeviceDefault.SeekBar"
+        android:layout_width="20dp"
+        android:layout_height="300dp"
+        android:max="100"
+        android:progress="50"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/verticalSeekBar5"
+        app:layout_constraintStart_toEndOf="@+id/verticalSeekBar3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.393" />
+
+    <android.widget.VerticalSeekBar
+        android:id="@+id/verticalSeekBar5"
+        style="@android:style/Widget.DeviceDefault.SeekBar"
+        android:layout_width="20dp"
+        android:layout_height="300dp"
+        android:max="100"
+        android:progress="50"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/verticalSeekBar6"
+        app:layout_constraintStart_toEndOf="@+id/verticalSeekBar4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.393" />
+
+    <android.widget.VerticalSeekBar
+        android:id="@+id/verticalSeekBar6"
+        style="@android:style/Widget.DeviceDefault.SeekBar"
+        android:layout_width="20dp"
+        android:layout_height="300dp"
+        android:max="100"
+        android:progress="50"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/verticalSeekBar5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.393" />
 
 </android.support.constraint.ConstraintLayout>
