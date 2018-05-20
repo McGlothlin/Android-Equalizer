@@ -1,33 +1,190 @@
 package com.seanmcglothlin.equalizer
 
 import android.*
-import android.app.Activity
 import android.os.Bundle
 import android.view.*
 import android.view.View.OnClickListener
 import android.app.*
 import android.widget.*
 import android.content.*
+import android.graphics.Canvas
 import android.media.audiofx.*
 import android.support.v7.app.AppCompatActivity
+import android.widget.Toast
+import android.widget.SeekBar
+
+
 
 class MainActivity : AppCompatActivity() {
+
+    internal val maxBands = 6
+    internal var enabled: Switch? = null
+    internal var bands = arrayOfNulls<SeekBar>(maxBands)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        initSeekBars()
     }
+
+    fun initSeekBars() {
+
+        var band1: VerticalSeekBar? = findViewById(R.id.verticalSeekBar1) as VerticalSeekBar
+        var band2: VerticalSeekBar? = findViewById(R.id.verticalSeekBar2) as VerticalSeekBar
+        var band3: VerticalSeekBar? = findViewById(R.id.verticalSeekBar3) as VerticalSeekBar
+        var band4: VerticalSeekBar? = findViewById(R.id.verticalSeekBar4) as VerticalSeekBar
+        var band5: VerticalSeekBar? = findViewById(R.id.verticalSeekBar5) as VerticalSeekBar
+        var band6: VerticalSeekBar? = findViewById(R.id.verticalSeekBar6) as VerticalSeekBar
+
+        var bassBoost: SeekBar = findViewById(R.id.bassBoostSeekBar) as SeekBar
+
+        band1!!.setOnSeekBarChangeListener(
+                object : SeekBar.OnSeekBarChangeListener {
+
+                    internal var progress_value: Int = 0
+                    override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                        progress_value = progress
+//                        not yet implemented
+                    }
+
+                    override fun onStartTrackingTouch(seekBar: SeekBar) {
+//                        not yet implemented
+                    }
+
+                    override fun onStopTrackingTouch(seekBar: SeekBar) {
+//                        not yet implemented
+                    }
+                }
+        )
+
+        band2!!.setOnSeekBarChangeListener(
+                object : SeekBar.OnSeekBarChangeListener {
+
+                    internal var progress_value: Int = 0
+                    override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                        progress_value = progress
+//                        not yet implemented
+                    }
+
+                    override fun onStartTrackingTouch(seekBar: SeekBar) {
+//                        not yet implemented
+                    }
+
+                    override fun onStopTrackingTouch(seekBar: SeekBar) {
+//                        not yet implemented
+                    }
+                }
+        )
+
+        band3!!.setOnSeekBarChangeListener(
+                object : SeekBar.OnSeekBarChangeListener {
+
+                    internal var progress_value: Int = 0
+                    override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                        progress_value = progress
+//                        not yet implemented
+                    }
+
+                    override fun onStartTrackingTouch(seekBar: SeekBar) {
+//                        not yet implemented
+                    }
+
+                    override fun onStopTrackingTouch(seekBar: SeekBar) {
+//                        not yet implemented
+                    }
+                }
+        )
+
+        band4!!.setOnSeekBarChangeListener(
+                object : SeekBar.OnSeekBarChangeListener {
+
+                    internal var progress_value: Int = 0
+                    override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                        progress_value = progress
+//                        not yet implemented
+                    }
+
+                    override fun onStartTrackingTouch(seekBar: SeekBar) {
+//                        not yet implemented
+                    }
+
+                    override fun onStopTrackingTouch(seekBar: SeekBar) {
+//                        not yet implemented
+                    }
+                }
+        )
+
+        band5!!.setOnSeekBarChangeListener(
+                object : SeekBar.OnSeekBarChangeListener {
+
+                    internal var progress_value: Int = 0
+                    override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                        progress_value = progress
+//                        not yet implemented
+                    }
+
+                    override fun onStartTrackingTouch(seekBar: SeekBar) {
+//                        not yet implemented
+                    }
+
+                    override fun onStopTrackingTouch(seekBar: SeekBar) {
+//                        not yet implemented
+                    }
+                }
+        )
+
+        band6!!.setOnSeekBarChangeListener(
+                object : SeekBar.OnSeekBarChangeListener {
+
+                    internal var progress_value: Int = 0
+                    override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                        progress_value = progress
+//                        not yet implemented
+                    }
+
+                    override fun onStartTrackingTouch(seekBar: SeekBar) {
+//                        not yet implemented
+                    }
+
+                    override fun onStopTrackingTouch(seekBar: SeekBar) {
+//                        not yet implemented
+                    }
+                }
+        )
+
+        bassBoost!!.setOnSeekBarChangeListener(
+                object: SeekBar.OnSeekBarChangeListener {
+
+                        internal var progress_value: Int = 0
+                        override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                            progress_value = progress
+//                        Toast.makeText(this@MainActivity, "SeekBar in progress", Toast.LENGTH_LONG).show()
+                        }
+
+                        override fun onStartTrackingTouch(seekBar: SeekBar) {
+//                        Toast.makeText(this@MainActivity, "SeekBar in StartTracking", Toast.LENGTH_LONG).show()
+                        }
+
+                        override fun onStopTrackingTouch(seekBar: SeekBar) {
+//                        Toast.makeText(this@MainActivity, "SeekBar in StopTracking", Toast.LENGTH_LONG).show()
+                        }
+                }
+        )
+
+
+    }
+
 }
 
 
 
-//
-//
-//
+
+
+
 //class MainActivity : Activity(), SeekBar.OnSeekBarChangeListener, CompoundButton.OnCheckedChangeListener, View.OnClickListener {
 //    internal var bass_boost_label: TextView? = null
 //    internal var bass_boost: SeekBar? = null
-//    internal var enabled: CheckBox? = null
+//    internal var enabled: Switch? = null
 //    internal var flat: Button? = null
 //
 //    internal var eq: Equalizer? = null
@@ -42,45 +199,45 @@ class MainActivity : AppCompatActivity() {
 //    /*=============================================================================
 //    onCreate
 //=============================================================================*/
-//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-//        val inflater = menuInflater
-//        inflater.inflate(R.menu.main_menu, menu)
-//        return true
-//    }
+////    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+////        val inflater = menuInflater
+////        inflater.inflate(R.menu.main_menu, menu)
+////        return true
+////    }
 //
 //    /*=============================================================================
 //    onCreate
 //=============================================================================*/
 //    public override fun onCreate(savedInstanceState: Bundle?) {
 //        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.main)
+//        setContentView(R.layout.activity_main)
 //
-//        enabled = findViewById(R.id.enabled) as CheckBox
+//        enabled = findViewById(R.id.enabledSwitch)
 //        enabled!!.setOnCheckedChangeListener(this)
 //
-//        flat = findViewById(R.id.flat) as Button
-//        flat!!.setOnClickListener(this)
+//        val reset = findViewById(R.id.resetButton) as Button
+//        reset!!.setOnClickListener(this)
 //
-//        bass_boost = findViewById(R.id.bass_boost) as SeekBar
+//        bass_boost = findViewById(R.id.bassBoostSeekBar) as SeekBar
 //        bass_boost!!.setOnSeekBarChangeListener(this)
-//        bass_boost_label = findViewById(R.id.bass_boost_label) as TextView
+//        bass_boost_label = findViewById(R.id.bassBoostLabel) as TextView
 //
-//        sliders[0] = findViewById(R.id.slider_1) as SeekBar
-//        slider_labels[0] = findViewById(R.id.slider_label_1) as TextView
-//        sliders[1] = findViewById(R.id.slider_2) as SeekBar
-//        slider_labels[1] = findViewById(R.id.slider_label_2) as TextView
-//        sliders[2] = findViewById(R.id.slider_3) as SeekBar
-//        slider_labels[2] = findViewById(R.id.slider_label_3) as TextView
-//        sliders[3] = findViewById(R.id.slider_4) as SeekBar
-//        slider_labels[3] = findViewById(R.id.slider_label_4) as TextView
-//        sliders[4] = findViewById(R.id.slider_5) as SeekBar
-//        slider_labels[4] = findViewById(R.id.slider_label_5) as TextView
-//        sliders[5] = findViewById(R.id.slider_6) as SeekBar
-//        slider_labels[5] = findViewById(R.id.slider_label_6) as TextView
-//        sliders[6] = findViewById(R.id.slider_7) as SeekBar
-//        slider_labels[6] = findViewById(R.id.slider_label_7) as TextView
-//        sliders[7] = findViewById(R.id.slider_8) as SeekBar
-//        slider_labels[7] = findViewById(R.id.slider_label_8) as TextView
+//        sliders[0] = findViewById(R.id.verticalSeekBar1) as VerticalSeekBar
+////        slider_labels[0] = findViewById(R.id.slider_label_1) as TextView
+//        sliders[1] = findViewById(R.id.verticalSeekBar2) as VerticalSeekBar
+////        slider_labels[1] = findViewById(R.id.slider_label_2) as TextView
+//        sliders[2] = findViewById(R.id.verticalSeekBar3) as VerticalSeekBar
+////        slider_labels[2] = findViewById(R.id.slider_label_3) as TextView
+//        sliders[3] = findViewById(R.id.verticalSeekBar4) as VerticalSeekBar
+////        slider_labels[3] = findViewById(R.id.slider_label_4) as TextView
+//        sliders[4] = findViewById(R.id.verticalSeekBar5) as VerticalSeekBar
+////        slider_labels[4] = findViewById(R.id.slider_label_5) as TextView
+//        sliders[5] = findViewById(R.id.verticalSeekBar6) as VerticalSeekBar
+////        slider_labels[5] = findViewById(R.id.slider_label_6) as TextView
+////        sliders[6] = findViewById(R.id.slider_7) as SeekBar
+////        slider_labels[6] = findViewById(R.id.slider_label_7) as TextView
+////        sliders[7] = findViewById(R.id.slider_8) as SeekBar
+////        slider_labels[7] = findViewById(R.id.slider_label_8) as TextView
 //
 //        eq = Equalizer(0, 0)
 //        if (eq != null) {
@@ -93,14 +250,14 @@ class MainActivity : AppCompatActivity() {
 //            var i = 0
 //            while (i < num_sliders && i < MAX_SLIDERS) {
 //                val freq_range = eq!!.getBandFreqRange(i.toShort())
-//                sliders[i].setOnSeekBarChangeListener(this)
-//                slider_labels[i].setText(formatBandLabel(freq_range))
+//                sliders[i]?.setOnSeekBarChangeListener(this)
+//                slider_labels[i]?.setText(formatBandLabel(freq_range))
 //                i++
 //            }
 //        }
 //        for (i in num_sliders until MAX_SLIDERS) {
-//            sliders[i].setVisibility(View.GONE)
-//            slider_labels[i].setVisibility(View.GONE)
+//            sliders[i]?.setVisibility(View.GONE)
+//            slider_labels[i]?.setVisibility(View.GONE)
 //        }
 //
 //        bb = BassBoost(0, 0)
@@ -172,7 +329,7 @@ class MainActivity : AppCompatActivity() {
 //            else
 //                level = 0
 //            val pos = 100 * level / (max_level - min_level) + 50
-//            sliders[i].setProgress(pos)
+//            sliders[i]?.setProgress(pos)
 //        }
 //    }
 //
@@ -234,29 +391,29 @@ class MainActivity : AppCompatActivity() {
 //    /*=============================================================================
 //    showAbout
 //=============================================================================*/
-//    fun showAbout() {
-//        val alertDialogBuilder = AlertDialog.Builder(this)
-//
-//        alertDialogBuilder.setTitle("About Simple EQ")
-//        alertDialogBuilder.setMessage(R.string.copyright_message)
-//        alertDialogBuilder.setCancelable(true)
-//        alertDialogBuilder.setPositiveButton(R.string.ok
-//        ) { dialog, id -> }
-//        val ad = alertDialogBuilder.create()
-//        ad.show()
-//
-//    }
+////    fun showAbout() {
+////        val alertDialogBuilder = AlertDialog.Builder(this)
+////
+////        alertDialogBuilder.setTitle("About Simple EQ")
+////        alertDialogBuilder.setMessage(R.string.copyright_message)
+////        alertDialogBuilder.setCancelable(true)
+////        alertDialogBuilder.setPositiveButton(R.string.ok
+////        ) { dialog, id -> }
+////        val ad = alertDialogBuilder.create()
+////        ad.show()
+////
+////    }
 //
 //    /*=============================================================================
 //    onOptionsItemSelected
 //=============================================================================*/
 //    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        when (item.itemId) {
-//            R.id.about -> {
-//                showAbout()
-//                return true
-//            }
-//        }
+////        when (item.itemId) {
+////            R.id.about -> {
+////                showAbout()
+////                return true
+////            }
+////        }
 //        return super.onOptionsItemSelected(item)
 //    }
 //

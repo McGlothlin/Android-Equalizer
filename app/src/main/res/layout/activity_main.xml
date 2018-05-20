@@ -35,26 +35,23 @@
         style="@android:style/Widget.DeviceDefault.SeekBar"
         android:layout_width="0dp"
         android:layout_height="30dp"
-        android:layout_marginTop="28dp"
         android:max="100"
         android:progress="0"
         app:layout_constraintBottom_toTopOf="@+id/bassBoostLabel"
         app:layout_constraintEnd_toEndOf="@+id/enabledSwitch"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/resetButton"
-        app:layout_constraintTop_toBottomOf="@+id/verticalSeekBar1" />
+        app:layout_constraintStart_toStartOf="@+id/resetButton" />
 
     <TextView
         android:id="@+id/bassBoostLabel"
         android:layout_width="0dp"
         android:layout_height="20dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="32dp"
         android:text="@string/bass_boost_label"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/bassBoostSeekBar"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/bassBoostSeekBar"
-        app:layout_constraintTop_toBottomOf="@+id/bassBoostSeekBar" />
+        app:layout_constraintStart_toStartOf="@+id/bassBoostSeekBar" />
 
     <android.widget.VerticalSeekBar
         android:id="@+id/verticalSeekBar1"
@@ -133,5 +130,4 @@
         app:layout_constraintStart_toEndOf="@+id/verticalSeekBar5"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.393" />
-
 </android.support.constraint.ConstraintLayout>
