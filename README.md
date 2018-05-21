@@ -1,4 +1,4 @@
-This project serves three purposes for me:
+Early work in progress. This project serves three purposes for me:
 
 1. Learn Android development
 2. Learn Kotlin
