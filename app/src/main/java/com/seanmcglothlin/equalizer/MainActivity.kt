@@ -12,6 +12,18 @@ import android.media.audiofx.*
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import android.widget.SeekBar
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
+import android.graphics.Bitmap
+import android.animation.ObjectAnimator
+import android.view.animation.DecelerateInterpolator
+import android.R.attr.animation
+
+
+
+
+
+
 
 
 
@@ -27,154 +39,172 @@ class MainActivity : AppCompatActivity() {
         initSeekBars()
     }
 
+    override fun onPause() {
+        super.onPause()
+    }
+
     fun initSeekBars() {
 
-        var band1: VerticalSeekBar? = findViewById(R.id.verticalSeekBar1) as VerticalSeekBar
-        var band2: VerticalSeekBar? = findViewById(R.id.verticalSeekBar2) as VerticalSeekBar
-        var band3: VerticalSeekBar? = findViewById(R.id.verticalSeekBar3) as VerticalSeekBar
-        var band4: VerticalSeekBar? = findViewById(R.id.verticalSeekBar4) as VerticalSeekBar
-        var band5: VerticalSeekBar? = findViewById(R.id.verticalSeekBar5) as VerticalSeekBar
-        var band6: VerticalSeekBar? = findViewById(R.id.verticalSeekBar6) as VerticalSeekBar
+//        var band1: SeekBar? = findViewById(R.id.verticalSeekBar1) as SeekBar
+//        var band2: SeekBar? = findViewById(R.id.verticalSeekBar2) as SeekBar
+//        var band3: SeekBar? = findViewById(R.id.verticalSeekBar3) as SeekBar
+//        var band4: SeekBar? = findViewById(R.id.verticalSeekBar4) as SeekBar
+//        var band5: SeekBar? = findViewById(R.id.verticalSeekBar5) as SeekBar
+//        var band6: SeekBar? = findViewById(R.id.verticalSeekBar6) as SeekBar
 
         var bassBoost: SeekBar = findViewById(R.id.bassBoostSeekBar) as SeekBar
 
-        band1!!.setOnSeekBarChangeListener(
-                object : SeekBar.OnSeekBarChangeListener {
+//        band1!!.setOnSeekBarChangeListener(
+//
+//                object : SeekBar.OnSeekBarChangeListener {
+//
+//                    internal var progress_value: Int = 0
+//                    internal val originalWidth: Int =  band1.thumb.intrinsicWidth
+//                    internal val originalHeight: Int =  band1.thumb.intrinsicHeight
+//
+//                    override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+//                        progress_value = progress
+////                        not yet implemented
+//
+//
+////                        Toast.makeText(this@MainActivity, "width: " + h, Toast.LENGTH_LONG).show()
+////                        val bmpOrg = (thumb as BitmapDrawable).bitmap
+////                        val bmpScaled = Bitmap.createScaledBitmap(bmpOrg, w, h, true)
+////                        val newThumb = BitmapDrawable(res, bmpScaled)
+////                        seekBar.thumb.setBounds(h, h, h, h)
+////                        seekBar.setBounds(0, 0, w, h)
+////                        seekBar.thumb = newThumb
+//
+//                    }
+//
+//                    override fun onStartTrackingTouch(seekBar: SeekBar) {
+////                        not yet implemented
+//                    }
+//
+//                    override fun onStopTrackingTouch(seekBar: SeekBar) {
+////                        not yet implemented
+//                    }
+//                }
+//        )
+//
+//        band2!!.setOnSeekBarChangeListener(
+//                object : SeekBar.OnSeekBarChangeListener {
+//
+//                    internal var progress_value: Int = 0
+//                    override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+//                        progress_value = progress
+////                        not yet implemented
+//                    }
+//
+//                    override fun onStartTrackingTouch(seekBar: SeekBar) {
+////                        not yet implemented
+//                    }
+//
+//                    override fun onStopTrackingTouch(seekBar: SeekBar) {
+////                        not yet implemented
+//                    }
+//                }
+//        )
+//
+//        band3!!.setOnSeekBarChangeListener(
+//                object : SeekBar.OnSeekBarChangeListener {
+//
+//                    internal var progress_value: Int = 0
+//                    override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+//                        progress_value = progress
+////                        not yet implemented
+//                    }
+//
+//                    override fun onStartTrackingTouch(seekBar: SeekBar) {
+////                        not yet implemented
+//                    }
+//
+//                    override fun onStopTrackingTouch(seekBar: SeekBar) {
+////                        not yet implemented
+//                    }
+//                }
+//        )
+//
+//        band4!!.setOnSeekBarChangeListener(
+//                object : SeekBar.OnSeekBarChangeListener {
+//
+//                    internal var progress_value: Int = 0
+//                    override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+//                        progress_value = progress
+////                        not yet implemented
+//                    }
+//
+//                    override fun onStartTrackingTouch(seekBar: SeekBar) {
+////                        not yet implemented
+//                    }
+//
+//                    override fun onStopTrackingTouch(seekBar: SeekBar) {
+////                        not yet implemented
+//                    }
+//                }
+//        )
+//
+//        band5!!.setOnSeekBarChangeListener(
+//                object : SeekBar.OnSeekBarChangeListener {
+//
+//                    internal var progress_value: Int = 0
+//                    override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+//                        progress_value = progress
+////                        not yet implemented
+//                    }
+//
+//                    override fun onStartTrackingTouch(seekBar: SeekBar) {
+////                        not yet implemented
+//                    }
+//
+//                    override fun onStopTrackingTouch(seekBar: SeekBar) {
+////                        not yet implemented
+//                    }
+//                }
+//        )
+//
+//        band6!!.setOnSeekBarChangeListener(
+//                object : SeekBar.OnSeekBarChangeListener {
+//
+//                    internal var progress_value: Int = 0
+//                    override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+//                        progress_value = progress
+////                        not yet implemented
+//                    }
+//
+//                    override fun onStartTrackingTouch(seekBar: SeekBar) {
+////                        not yet implemented
+//                    }
+//
+//                    override fun onStopTrackingTouch(seekBar: SeekBar) {
+////                        not yet implemented
+//                    }
+//                }
+//        )
+//
+//        bassBoost!!.setOnSeekBarChangeListener(
+//                object: SeekBar.OnSeekBarChangeListener {
+//
+//                        internal var progress_value: Int = 0
+//                        override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+//                            progress_value = progress
+////                        Toast.makeText(this@MainActivity, "SeekBar in progress", Toast.LENGTH_LONG).show()
+//                        }
+//
+//                        override fun onStartTrackingTouch(seekBar: SeekBar) {
+////                        Toast.makeText(this@MainActivity, "SeekBar in StartTracking", Toast.LENGTH_LONG).show()
+//                        }
+//
+//                        override fun onStopTrackingTouch(seekBar: SeekBar) {
+////                        Toast.makeText(this@MainActivity, "SeekBar in StopTracking", Toast.LENGTH_LONG).show()
+//                        }
+//                }
+//        )
+//
+//
+//    }
 
-                    internal var progress_value: Int = 0
-                    override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                        progress_value = progress
-//                        not yet implemented
-                    }
-
-                    override fun onStartTrackingTouch(seekBar: SeekBar) {
-//                        not yet implemented
-                    }
-
-                    override fun onStopTrackingTouch(seekBar: SeekBar) {
-//                        not yet implemented
-                    }
-                }
-        )
-
-        band2!!.setOnSeekBarChangeListener(
-                object : SeekBar.OnSeekBarChangeListener {
-
-                    internal var progress_value: Int = 0
-                    override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                        progress_value = progress
-//                        not yet implemented
-                    }
-
-                    override fun onStartTrackingTouch(seekBar: SeekBar) {
-//                        not yet implemented
-                    }
-
-                    override fun onStopTrackingTouch(seekBar: SeekBar) {
-//                        not yet implemented
-                    }
-                }
-        )
-
-        band3!!.setOnSeekBarChangeListener(
-                object : SeekBar.OnSeekBarChangeListener {
-
-                    internal var progress_value: Int = 0
-                    override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                        progress_value = progress
-//                        not yet implemented
-                    }
-
-                    override fun onStartTrackingTouch(seekBar: SeekBar) {
-//                        not yet implemented
-                    }
-
-                    override fun onStopTrackingTouch(seekBar: SeekBar) {
-//                        not yet implemented
-                    }
-                }
-        )
-
-        band4!!.setOnSeekBarChangeListener(
-                object : SeekBar.OnSeekBarChangeListener {
-
-                    internal var progress_value: Int = 0
-                    override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                        progress_value = progress
-//                        not yet implemented
-                    }
-
-                    override fun onStartTrackingTouch(seekBar: SeekBar) {
-//                        not yet implemented
-                    }
-
-                    override fun onStopTrackingTouch(seekBar: SeekBar) {
-//                        not yet implemented
-                    }
-                }
-        )
-
-        band5!!.setOnSeekBarChangeListener(
-                object : SeekBar.OnSeekBarChangeListener {
-
-                    internal var progress_value: Int = 0
-                    override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                        progress_value = progress
-//                        not yet implemented
-                    }
-
-                    override fun onStartTrackingTouch(seekBar: SeekBar) {
-//                        not yet implemented
-                    }
-
-                    override fun onStopTrackingTouch(seekBar: SeekBar) {
-//                        not yet implemented
-                    }
-                }
-        )
-
-        band6!!.setOnSeekBarChangeListener(
-                object : SeekBar.OnSeekBarChangeListener {
-
-                    internal var progress_value: Int = 0
-                    override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                        progress_value = progress
-//                        not yet implemented
-                    }
-
-                    override fun onStartTrackingTouch(seekBar: SeekBar) {
-//                        not yet implemented
-                    }
-
-                    override fun onStopTrackingTouch(seekBar: SeekBar) {
-//                        not yet implemented
-                    }
-                }
-        )
-
-        bassBoost!!.setOnSeekBarChangeListener(
-                object: SeekBar.OnSeekBarChangeListener {
-
-                        internal var progress_value: Int = 0
-                        override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                            progress_value = progress
-//                        Toast.makeText(this@MainActivity, "SeekBar in progress", Toast.LENGTH_LONG).show()
-                        }
-
-                        override fun onStartTrackingTouch(seekBar: SeekBar) {
-//                        Toast.makeText(this@MainActivity, "SeekBar in StartTracking", Toast.LENGTH_LONG).show()
-                        }
-
-                        override fun onStopTrackingTouch(seekBar: SeekBar) {
-//                        Toast.makeText(this@MainActivity, "SeekBar in StopTracking", Toast.LENGTH_LONG).show()
-                        }
-                }
-        )
-
-
-    }
-
-}
+}}
 
 
 
@@ -222,17 +252,17 @@ class MainActivity : AppCompatActivity() {
 //        bass_boost!!.setOnSeekBarChangeListener(this)
 //        bass_boost_label = findViewById(R.id.bassBoostLabel) as TextView
 //
-//        sliders[0] = findViewById(R.id.verticalSeekBar1) as VerticalSeekBar
+//        sliders[0] = findViewById(R.id.verticalSeekBar1) as SeekBar
 ////        slider_labels[0] = findViewById(R.id.slider_label_1) as TextView
-//        sliders[1] = findViewById(R.id.verticalSeekBar2) as VerticalSeekBar
+//        sliders[1] = findViewById(R.id.verticalSeekBar2) as SeekBar
 ////        slider_labels[1] = findViewById(R.id.slider_label_2) as TextView
-//        sliders[2] = findViewById(R.id.verticalSeekBar3) as VerticalSeekBar
+//        sliders[2] = findViewById(R.id.verticalSeekBar3) as SeekBar
 ////        slider_labels[2] = findViewById(R.id.slider_label_3) as TextView
-//        sliders[3] = findViewById(R.id.verticalSeekBar4) as VerticalSeekBar
+//        sliders[3] = findViewById(R.id.verticalSeekBar4) as SeekBar
 ////        slider_labels[3] = findViewById(R.id.slider_label_4) as TextView
-//        sliders[4] = findViewById(R.id.verticalSeekBar5) as VerticalSeekBar
+//        sliders[4] = findViewById(R.id.verticalSeekBar5) as SeekBar
 ////        slider_labels[4] = findViewById(R.id.slider_label_5) as TextView
-//        sliders[5] = findViewById(R.id.verticalSeekBar6) as VerticalSeekBar
+//        sliders[5] = findViewById(R.id.verticalSeekBar6) as SeekBar
 ////        slider_labels[5] = findViewById(R.id.slider_label_6) as TextView
 ////        sliders[6] = findViewById(R.id.slider_7) as SeekBar
 ////        slider_labels[6] = findViewById(R.id.slider_label_7) as TextView
