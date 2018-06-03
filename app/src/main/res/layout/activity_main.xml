@@ -35,52 +35,106 @@
         style="@android:style/Widget.DeviceDefault.SeekBar"
         android:layout_width="0dp"
         android:layout_height="30dp"
+        android:layout_marginBottom="32dp"
         android:max="100"
         android:progress="0"
-        app:layout_constraintBottom_toTopOf="@+id/bassBoostLabel"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/enabledSwitch"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/resetButton" />
+        app:layout_constraintStart_toStartOf="@+id/resetButton"
+        app:layout_constraintTop_toBottomOf="@id/frequencyBandLayout" />
 
     <TextView
         android:id="@+id/bassBoostLabel"
         android:layout_width="0dp"
         android:layout_height="20dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/bass_boost_label"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/bassBoostSeekBar"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/bassBoostSeekBar" />
+        app:layout_constraintStart_toStartOf="@+id/bassBoostSeekBar"
+        app:layout_constraintTop_toBottomOf="@+id/bassBoostSeekBar" />
 
-    <SeekBar
-        android:id="@+id/verticalSeekBar1"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:progress="50"
+    <LinearLayout
+        android:id="@+id/frequencyBandLayout"
+        android:layout_width="match_parent"
+        android:layout_height="377dp"
+        android:layout_marginBottom="100dp"
+        android:orientation="vertical"
         android:rotation="270"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/verticalSeekBar2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <SeekBar
-        android:id="@+id/verticalSeekBar2"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:progress="50"
-        android:rotation="270"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bassBoostSeekBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/verticalSeekBar1"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resetButton"
+        app:layout_constraintVertical_bias="0.703">
+
+        <SeekBar
+            android:id="@+id/band1"
+            style="@android:style/Widget.DeviceDefault.SeekBar"
+            android:layout_width="350dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:max="100"
+            android:progress="50" />
+
+
+        <SeekBar
+            android:id="@+id/band2"
+            style="@android:style/Widget.DeviceDefault.SeekBar"
+            android:layout_width="350dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:max="100"
+            android:progress="50" />
+
+        <SeekBar
+            android:id="@+id/band3"
+            style="@android:style/Widget.DeviceDefault.SeekBar"
+            android:layout_width="350dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:max="100"
+            android:progress="50" />
+
+        <SeekBar
+            android:id="@+id/band4"
+            style="@android:style/Widget.DeviceDefault.SeekBar"
+            android:layout_width="350dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:max="100"
+            android:progress="50" />
+
+        <SeekBar
+            android:id="@+id/band5"
+            style="@android:style/Widget.DeviceDefault.SeekBar"
+            android:layout_width="350dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:max="100"
+            android:progress="50" />
+
+        <SeekBar
+            android:id="@+id/band6"
+            style="@android:style/Widget.DeviceDefault.SeekBar"
+            android:layout_width="350dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:max="100"
+            android:progress="50" />
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
