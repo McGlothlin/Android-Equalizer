@@ -8,26 +8,26 @@
 
     <Button
         android:id="@+id/resetButton"
-        android:layout_width="0dp"
+        android:layout_width="133dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="280dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginTop="8dp"
         android:text="@string/reset"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/enabledSwitch"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Switch
         android:id="@+id/enabledSwitch"
         android:layout_width="101dp"
-        android:layout_height="15dp"
+        android:layout_height="43dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:text="@string/enabled"
         app:layout_constraintBottom_toBottomOf="@+id/resetButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/resetButton"
         app:layout_constraintTop_toTopOf="@+id/resetButton" />
 
     <SeekBar
@@ -41,8 +41,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/enabledSwitch"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/resetButton"
-        app:layout_constraintTop_toBottomOf="@id/frequencyBandLayout" />
+        app:layout_constraintStart_toStartOf="@+id/resetButton" />
 
     <TextView
         android:id="@+id/bassBoostLabel"
@@ -61,6 +60,9 @@
         android:layout_width="match_parent"
         android:layout_height="377dp"
         android:layout_marginBottom="100dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="200dp"
         android:orientation="vertical"
         android:rotation="270"
         app:layout_constraintBottom_toTopOf="@+id/bassBoostSeekBar"
