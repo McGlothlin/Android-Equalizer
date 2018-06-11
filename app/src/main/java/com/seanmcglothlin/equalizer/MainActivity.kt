@@ -12,7 +12,7 @@ import android.util.Log
 class MainActivity : AppCompatActivity() {
 
     internal val maxBands = 6
-    internal var enabled: Switch? = null
+    internal var enabledSwitch: Switch? = null
     internal var reset: Button? = null
     internal var eq: Equalizer? = null
     internal var bb: BassBoost? = null
@@ -29,17 +29,36 @@ class MainActivity : AppCompatActivity() {
         var band3: SeekBar = findViewById(R.id.band3) as SeekBar
         var band4: SeekBar = findViewById(R.id.band4) as SeekBar
 
-        enabled = findViewById(R.id.enabledSwitch) as Switch
+        enabledSwitch = findViewById(R.id.enabledSwitch) as Switch
         reset = findViewById(R.id.resetButton) as Button
 
         eq = Equalizer(0, MediaPlayer().audioSessionId)
         bb = BassBoost(0, MediaPlayer().audioSessionId)
 
-        eq!!.enabled
-
         Log.d("SEAN", "Init complete")
+        Log.d("SEAN", "Audio session ID: " + MediaPlayer().audioSessionId)
+        Log.d("SEAN", "Supported bass boost strength: " + bb!!.strengthSupported)
         Log.d("SEAN", "Number of bands on this device: " + eq!!.numberOfBands)
         Log.d("SEAN", eq!!.getCenterFreq(1).toString())
+
+
+        bassBoost!!.setOnSeekBarChangeListener(
+                object : SeekBar.OnSeekBarChangeListener {
+                    internal var progress: Int = 0
+
+                    override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                        bb!!.setStrength((progress * 10).toShort())
+                        Log.d("SEAN", "Set bass boost strength to " + bb!!.roundedStrength.toString())
+                    }
+
+                    override fun onStartTrackingTouch(seekBar: SeekBar?) {
+                    }
+
+                    override fun onStopTrackingTouch(seekBar: SeekBar?) {
+                    }
+
+                }
+        )
 
 
         band0!!.setOnSeekBarChangeListener(
@@ -52,7 +71,8 @@ class MainActivity : AppCompatActivity() {
 
                     var newLevel: Short = progress.toShort()
 
-//                    eq!!.setBandLevel(0, (eq!!.bandLevelRange[0] / progress).toShort())
+                    // TODO: This isn't working right...
+                    eq!!.setBandLevel(0, 1500)
                 }
 
                 override fun onStartTrackingTouch(seekBar: SeekBar?) {
