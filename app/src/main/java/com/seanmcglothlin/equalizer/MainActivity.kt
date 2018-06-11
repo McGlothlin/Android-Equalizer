@@ -6,12 +6,13 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.SeekBar
 import android.media.audiofx.*
 import android.media.MediaPlayer
+import android.provider.MediaStore
 import android.util.Log
 
 
 class MainActivity : AppCompatActivity() {
 
-    internal val maxBands = 6
+
     internal var enabledSwitch: Switch? = null
     internal var reset: Button? = null
     internal var eq: Equalizer? = null
@@ -35,11 +36,14 @@ class MainActivity : AppCompatActivity() {
         eq = Equalizer(0, MediaPlayer().audioSessionId)
         bb = BassBoost(0, MediaPlayer().audioSessionId)
 
+        val maxBands = eq!!.numberOfBands
+
         Log.d("SEAN", "Init complete")
         Log.d("SEAN", "Audio session ID: " + MediaPlayer().audioSessionId)
         Log.d("SEAN", "Supported bass boost strength: " + bb!!.strengthSupported)
         Log.d("SEAN", "Number of bands on this device: " + eq!!.numberOfBands)
-        Log.d("SEAN", eq!!.getCenterFreq(1).toString())
+
+        Log.d("SEAN", "MediaPlayer is playing: " + MediaPlayer().isPlaying)
 
 
         bassBoost!!.setOnSeekBarChangeListener(
