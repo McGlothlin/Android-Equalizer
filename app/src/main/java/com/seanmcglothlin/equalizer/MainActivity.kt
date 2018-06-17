@@ -1,16 +1,16 @@
 package com.seanmcglothlin.equalizer
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.widget.*
-import android.support.v7.app.AppCompatActivity
 import android.widget.SeekBar
 import android.media.audiofx.*
-import android.media.MediaPlayer
-import android.provider.MediaStore
 import android.util.Log
+import android.content.pm.PackageManager
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : Activity() {
 
 
     internal var enabledSwitch: Switch? = null
@@ -33,17 +33,36 @@ class MainActivity : AppCompatActivity() {
         enabledSwitch = findViewById(R.id.enabledSwitch) as Switch
         reset = findViewById(R.id.resetButton) as Button
 
-        eq = Equalizer(0, MediaPlayer().audioSessionId)
-        bb = BassBoost(0, MediaPlayer().audioSessionId)
+        val pm = packageManager
+//get a list of installed apps.
+        val packages = pm.getInstalledApplications(PackageManager.GET_META_DATA)
 
-        val maxBands = eq!!.numberOfBands
+//        for (packageInfo in packages) {
+//            if (packageInfo.packageName == "com.google.android.music") {
+//                Log.d("WOOT", "FOUND IT!")
+//                Log.d("SEAN", "Installed package :" + packageInfo.packageName)
+//            }
+//
+////            Log.d("SEAN", "Source dir : " + packageInfo.sourceDir)
+////            Log.d("SEAN", "Launch Activity :" + pm.getLaunchIntentForPackage(packageInfo.packageName)!!)
+//        }
+// the getLaunchIntentForPackage returns an intent that you can use with startActivity()
 
-        Log.d("SEAN", "Init complete")
-        Log.d("SEAN", "Audio session ID: " + MediaPlayer().audioSessionId)
-        Log.d("SEAN", "Supported bass boost strength: " + bb!!.strengthSupported)
-        Log.d("SEAN", "Number of bands on this device: " + eq!!.numberOfBands)
+//        val audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
+//        val audioSessionId = audioManager.generateAudioSessionId()
 
-        Log.d("SEAN", "MediaPlayer is playing: " + MediaPlayer().isPlaying)
+
+//        eq = Equalizer(0, 0)
+        bb = BassBoost(0, Context.)
+//
+//        val maxBands = eq!!.numberOfBands
+
+//        Log.d("SEAN", "Init complete")
+////        Log.d("SEAN", "Audio session ID: " + MediaPlayer().audioSessionId)
+//        Log.d("SEAN", "Supported bass boost strength: " + bb!!.strengthSupported)
+//        Log.d("SEAN", "Number of bands on this device: " + eq!!.numberOfBands)
+
+//        Log.d("SEAN", "MediaPlayer is playing: " + MediaPlayer().isPlaying)
 
 
         bassBoost!!.setOnSeekBarChangeListener(
@@ -52,7 +71,7 @@ class MainActivity : AppCompatActivity() {
 
                     override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                         bb!!.setStrength((progress * 10).toShort())
-                        Log.d("SEAN", "Set bass boost strength to " + bb!!.roundedStrength.toString())
+//                        Log.d("SEAN", "Set bass boost strength to " + bb!!.roundedStrength.toString())
                     }
 
                     override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -65,31 +84,31 @@ class MainActivity : AppCompatActivity() {
         )
 
 
-        band0!!.setOnSeekBarChangeListener(
-                object : SeekBar.OnSeekBarChangeListener {
-
-                internal var progress: Int = 0
-
-                override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                    Log.d("SEAN", "Band level range: " + eq!!.bandLevelRange[0] + " to " + eq!!.bandLevelRange[1])
-
-                    var newLevel: Short = progress.toShort()
-
-                    // TODO: This isn't working right...
-                    eq!!.setBandLevel(0, 1500)
-                }
-
-                override fun onStartTrackingTouch(seekBar: SeekBar?) {
-//                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-                }
-
-                override fun onStopTrackingTouch(seekBar: SeekBar?) {
-//                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-                }
-
-        })
-
-        Log.d("SEAN", "END TEH DEBUGZ")
+//        band0!!.setOnSeekBarChangeListener(
+//                object : SeekBar.OnSeekBarChangeListener {
+//
+//                internal var progress: Int = 0
+//
+//                override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+//                    Log.d("SEAN", "Band level range: " + eq!!.bandLevelRange[0] + " to " + eq!!.bandLevelRange[1])
+//
+//                    var newLevel: Short = progress.toShort()
+//
+//                    // TODO: This isn't working right...
+//                    eq!!.setBandLevel(0, 1500)
+//                }
+//
+//                override fun onStartTrackingTouch(seekBar: SeekBar?) {
+////                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+//                }
+//
+//                override fun onStopTrackingTouch(seekBar: SeekBar?) {
+////                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+//                }
+//
+//        })
+//
+//        Log.d("SEAN", "END TEH DEBUGZ")
 
     }
 
