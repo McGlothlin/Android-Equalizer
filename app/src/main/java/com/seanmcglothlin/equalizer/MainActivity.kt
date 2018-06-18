@@ -53,7 +53,7 @@ class MainActivity : Activity() {
 
 
 //        eq = Equalizer(0, 0)
-        bb = BassBoost(0, Context.)
+        bb = BassBoost(0, 0)
 //
 //        val maxBands = eq!!.numberOfBands
 
